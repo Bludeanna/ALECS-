@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A.L.E.C.S.: A SUPPLEMENTARY MOBILE LEARNING APP FOR GRADE 10 PHYSICS</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23112236'/><text y='48' x='8' font-size='48'>🍎</text></svg>">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav id="topnav">
+    <div id="topnav-left">
+      <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" title="Menu">
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+      </button>
+      <img src="data:image/png;base64,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" alt="Virgen del Pilar School Logo" style="height:42px;width:42px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))">
+      <div id="logo-text-wrap">
+        <span id="logo-text" title="Achieving Learning Excellence through Computing and Simulation">ALECS</span>
+        <span id="logo-subtitle">A Supplementary Mobile Learning App for Grade 10 Physics</span>
+        <span id="logo-acronym" style="display:block;font-size:.68rem;color:var(--muted,#8aa);opacity:.85;letter-spacing:.2px">Achieving Learning Excellence through Computing and Simulation</span>
+      </div>
+    </div>
+    <ul id="topnav-links">
+      <li><a href="#" class="nav-link active" onclick="showView('dashboard');setActiveNav(this);return false">Home</a></li>
+      <li><a href="#" class="nav-link" onclick="showView('progress');setActiveNav(this);return false">Progress</a></li>
+    </ul>
+    <div id="topnav-right">
+      <span class="icon-btn" id="achievements-btn" onclick="openAchievementsModal()" title="Achievements"><span class="ic ic-star"></span></span>
+      <span class="icon-btn" onclick="openSaveModal()" title="Save / Load"><span class="ic ic-save"></span></span>
+      <div id="user-avatar" onclick="openProfileModal()" title="Edit profile">
+        <span id="user-initials">?</span>
+      </div>
+      <span id="user-name" onclick="openProfileModal()" style="cursor:pointer">N/A</span>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer backdrop -->
+  <div id="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+
+  <!-- XP / STREAK BAR -->
+  <div id="xp-bar-row">
+    <span id="level-label"><span class="ic ic-zap"></span> Level <span id="level-num">1</span></span>
+    <div id="xp-track"><div id="xp-fill"></div></div>
+    <span id="xp-label"><span id="xp-current">0</span> / <span id="xp-max">1000</span> XP</span>
+    <div id="streak-pill"></div>
+    <div id="topnav-icons">
+      <span class="icon-btn" onclick="openSettingsModal()" title="Settings"><span class="ic ic-settings"></span></span>
+    </div>
+  </div>
+
+  <!-- 3-COLUMN LAYOUT -->
+  <div id="dashboard-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside id="sidebar">
+      <p class="sidebar-label">MENU</p>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active" id="menu-dashboard" onclick="showView('dashboard');setActiveMenu(this)">
+          <span class="sidebar-item-icon ic ic-home"></span>
+          <div class="sidebar-item-text"><strong>Dashboard</strong><small>Overview</small></div>
+        </li>
+        <li class="sidebar-item" id="menu-lessons" onclick="showView('lessons');setActiveMenu(this)">
+          <span class="sidebar-item-icon ic ic-book"></span>
+          <div class="sidebar-item-text"><strong>My Lessons</strong><small>4 units</small></div>
+        </li>
+        <li class="sidebar-item" id="menu-games" onclick="showView('games');setActiveMenu(this)">
+          <span class="sidebar-item-icon ic ic-gamepad"></span>
+          <div class="sidebar-item-text"><strong>Games</strong><small>4 available</small></div>
+        </li>
+        <li class="sidebar-item" id="menu-progress" onclick="showView('progress');setActiveMenu(this)">
+          <span class="sidebar-item-icon ic ic-chart"></span>
+          <div class="sidebar-item-text"><strong>Progress</strong><small>Your stats</small></div>
+        </li>
+      </ul>
+
+      <p class="sidebar-label">LESSONS</p>
+      <ul class="sidebar-lessons">
+        <li class="sidebar-lesson" id="sidebar-l1" onclick="window.location.href='lesson1.html'">
+          <span class="lesson-pill l1-pill">L1</span>
+          <div class="sidebar-lesson-text"><strong>Projectile Motion</strong><small id="sidebar-l1-status">0%</small><span style="font-size: 11px;color:#facc15;font-weight:700;display:block" id="sidebar-score-l1"></span></div>
+        </li>
+        <li class="sidebar-lesson locked" id="sidebar-l2">
+          <span class="lesson-pill">L2</span>
+          <div class="sidebar-lesson-text"><strong>Momentum</strong><small id="sidebar-l2-status">Locked <span class="ic ic-lock"></span></small><span style="font-size: 11px;color:#facc15;font-weight:700;display:block" id="sidebar-score-l2"></span></div>
+        </li>
+        <li class="sidebar-lesson locked" id="sidebar-l3">
+          <span class="lesson-pill">L3</span>
+          <div class="sidebar-lesson-text"><strong>Electricity Gen.</strong><small id="sidebar-l3-status">Locked <span class="ic ic-lock"></span></small><span style="font-size: 11px;color:#facc15;font-weight:700;display:block" id="sidebar-score-l3"></span></div>
+        </li>
+        <li class="sidebar-lesson locked" id="sidebar-l4">
+          <span class="lesson-pill">L4</span>
+          <div class="sidebar-lesson-text"><strong>Energy Sources</strong><small id="sidebar-l4-status">Locked <span class="ic ic-lock"></span></small><span style="font-size: 11px;color:#facc15;font-weight:700;display:block" id="sidebar-score-l4"></span></div>
+        </li>
+      </ul>
+      <div onclick="openSaveModal()" style="margin-top:auto;padding:9px 10px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.25);color:#f97316;font-weight:800;font-size:12px;text-align:center;cursor:pointer;margin-top:12px"><span class="ic ic-save"></span> Save / Load</div>
+    </aside>
+
+    <!-- CENTER PANEL -->
+    <main id="center-panel">
+
+      <!-- ═══ VIEW: DASHBOARD ═══ -->
+      <div id="view-dashboard" class="main-view active">
+        <div id="newton-banner">
+          <div id="newton-avatar-wrap"><span id="newton-emoji">🍎</span></div>
+          <div id="newton-bubble">
+            <p>Hey <strong id="newton-username">there</strong>! <span id="newton-message">Ready to start learning?</span></p>
+          </div>
+        </div>
+        <div id="lessons-section">
+          <div id="lessons-header">
+            <div><h2>Your Lessons</h2><small>4 lessons · 1 game each</small></div>
+            <a href="#" id="see-all-btn" onclick="showView('lessons');setActiveMenu(document.getElementById('menu-lessons'));return false">See All →</a>
+          </div>
+          <div id="lesson-cards-grid">
+            <article class="lesson-card" id="card-lesson-1" onclick="window.location.href='lesson1.html'">
+              <div class="card-top-row"><span class="card-icon">🚀</span><span class="status-badge" id="badge-l1">▶ Start</span></div>
+              <p class="card-lesson-num">LESSON 01</p>
+              <h3 class="card-title">Projectile Motion</h3>
+              <p class="card-desc">Discover how objects fly through the air. From cannonballs to free kicks!</p>
+              <div class="card-footer">
+                <div class="card-progress-bar"><div class="card-progress-fill" id="fill-l1"></div></div>
+                <div class="card-footer-row"><span class="card-pct" id="pct-l1">0%</span><span class="unlock-tag"><span class="ic ic-unlock"></span> Unlocked</span></div>
+              </div>
+            </article>
+            <article class="lesson-card locked-card" id="card-lesson-2">
+              <div class="card-top-row"><span class="card-icon muted">💥</span><span class="status-badge locked-badge"><span class="ic ic-lock"></span> Locked</span></div>
+              <p class="card-lesson-num muted">LESSON 02</p>
+              <h3 class="card-title muted">Momentum &amp; Collisions</h3>
+              <p class="card-desc muted">Explore how momentum transfers between objects on impact.</p>
+              <div class="card-footer">
+                <div class="card-progress-bar"><div class="card-progress-fill" id="fill-l2"></div></div>
+                <div class="card-footer-row"><span class="card-pct muted" id="pct-l2">0%</span></div>
+              </div>
+            </article>
+            <article class="lesson-card locked-card" id="card-lesson-3">
+              <div class="card-top-row"><span class="card-icon muted">⚡</span><span class="status-badge locked-badge"><span class="ic ic-lock"></span> Locked</span></div>
+              <p class="card-lesson-num muted">LESSON 03</p>
+              <h3 class="card-title muted">Electricity Generation</h3>
+              <p class="card-desc muted">Learn how turbines, magnets, and coils produce the power we use daily.</p>
+              <div class="card-footer">
+                <div class="card-progress-bar"><div class="card-progress-fill" id="fill-l3"></div></div>
+                <div class="card-footer-row"><span class="card-pct muted" id="pct-l3">0%</span></div>
+              </div>
+            </article>
+            <article class="lesson-card locked-card" id="card-lesson-4">
+              <div class="card-top-row"><span class="card-icon muted">🌿</span><span class="status-badge locked-badge"><span class="ic ic-lock"></span> Locked</span></div>
+              <p class="card-lesson-num muted">LESSON 04</p>
+              <h3 class="card-title muted">Energy Sources</h3>
+              <p class="card-desc muted">Compare renewable and non-renewable energy and their real-world impact.</p>
+              <div class="card-footer">
+                <div class="card-progress-bar"><div class="card-progress-fill" id="fill-l4"></div></div>
+                <div class="card-footer-row"><span class="card-pct muted" id="pct-l4">0%</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ VIEW: MY LESSONS ═══ -->
+      <div id="view-lessons" class="main-view">
+        <h2 class="view-heading"><span class="ic ic-book"></span>My Lessons</h2>
+        <p class="view-subheading">Click a lesson to open it. Complete each lesson to unlock the next.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+
+          <div class="lesson-summary-card" id="lscard-1" onclick="window.location.href='lesson1.html'">
+            <div class="lsc-header">
+              <div class="lsc-icon-wrap" style="background:linear-gradient(135deg,#f97316,#facc15)">🚀</div>
+              <div class="lsc-meta">
+                <div class="lsc-tag">LESSON 01 · Unlocked</div>
+                <h3 class="lsc-title">Projectile Motion</h3>
+              </div>
+              <div class="lsc-pct-big" id="lsc-pct-1">0%</div>
+            </div>
+            <p class="lsc-desc">Discover how objects fly through the air. Learn trajectory, gravity, and launch angles. Then apply it in the basketball simulator!</p>
+            <div class="lsc-phases">
+              <span class="lsc-phase-tag">Knowledge Check</span>
+              <span class="lsc-phase-tag">Concepts</span>
+              <span class="lsc-phase-tag">Basketball Game</span>
+              <span class="lsc-phase-tag">Analysis</span>
+              <span class="lsc-phase-tag">Final Quiz</span>
+            </div>
+            <div class="card-progress-bar" style="margin-top:10px"><div class="card-progress-fill" id="lsc-fill-1"></div></div>
+          </div>
+
+          <div class="lesson-summary-card locked-summary" id="lscard-2">
+            <div class="lsc-header">
+              <div class="lsc-icon-wrap" style="background:#2b2831">💥</div>
+              <div class="lsc-meta">
+                <div class="lsc-tag muted-tag" id="lsc-tag-2">LESSON 02 · Locked</div>
+                <h3 class="lsc-title lsc-title-muted">Momentum &amp; Collisions</h3>
+              </div>
+              <div class="lsc-pct-big lsc-pct-muted" id="lsc-pct-2">0%</div>
+            </div>
+            <p class="lsc-desc lsc-desc-muted">Explore the physics of collisions. Elastic, inelastic, and everything in between. See how momentum is always conserved in closed systems.</p>
+            <div class="lsc-phases">
+              <span class="lsc-phase-tag muted-tag">Knowledge Check</span>
+              <span class="lsc-phase-tag muted-tag">Concepts</span>
+              <span class="lsc-phase-tag muted-tag">Collision Lab</span>
+              <span class="lsc-phase-tag muted-tag">Analysis</span>
+              <span class="lsc-phase-tag muted-tag">Final Quiz</span>
+            </div>
+            <div class="card-progress-bar" style="margin-top:10px"><div class="card-progress-fill" id="lsc-fill-2"></div></div>
+          </div>
+
+          <div class="lesson-summary-card locked-summary" id="lscard-3">
+            <div class="lsc-header">
+              <div class="lsc-icon-wrap" style="background:#2b2831">⚡</div>
+              <div class="lsc-meta">
+                <div class="lsc-tag muted-tag" id="lsc-tag-3">LESSON 03 · Locked</div>
+                <h3 class="lsc-title lsc-title-muted">Electricity Generation</h3>
+              </div>
+              <div class="lsc-pct-big lsc-pct-muted" id="lsc-pct-3">0%</div>
+            </div>
+            <p class="lsc-desc lsc-desc-muted">Learn how turbines, magnets, and copper coils generate electricity. Connect classroom physics to real power plants and daily life.</p>
+            <div class="lsc-phases">
+              <span class="lsc-phase-tag muted-tag">Knowledge Check</span>
+              <span class="lsc-phase-tag muted-tag">Concepts</span>
+              <span class="lsc-phase-tag muted-tag">Generator Sim</span>
+              <span class="lsc-phase-tag muted-tag">Analysis</span>
+              <span class="lsc-phase-tag muted-tag">Final Quiz</span>
+            </div>
+            <div class="card-progress-bar" style="margin-top:10px"><div class="card-progress-fill" id="lsc-fill-3"></div></div>
+          </div>
+
+          <div class="lesson-summary-card locked-summary" id="lscard-4">
+            <div class="lsc-header">
+              <div class="lsc-icon-wrap" style="background:#2b2831">🌿</div>
+              <div class="lsc-meta">
+                <div class="lsc-tag muted-tag" id="lsc-tag-4">LESSON 04 · Locked</div>
+                <h3 class="lsc-title lsc-title-muted">Energy Sources</h3>
+              </div>
+              <div class="lsc-pct-big lsc-pct-muted" id="lsc-pct-4">0%</div>
+            </div>
+            <p class="lsc-desc lsc-desc-muted">Compare renewable and non-renewable energy. Run 6 simulations across solar, wind, hydro, coal, oil, and gas to see real environmental impact.</p>
+            <div class="lsc-phases">
+              <span class="lsc-phase-tag muted-tag">Knowledge Check</span>
+              <span class="lsc-phase-tag muted-tag">Sort &amp; Match</span>
+              <span class="lsc-phase-tag muted-tag">Energy Simulator</span>
+              <span class="lsc-phase-tag muted-tag">Community App</span>
+              <span class="lsc-phase-tag muted-tag">Final Quiz</span>
+            </div>
+            <div class="card-progress-bar" style="margin-top:10px"><div class="card-progress-fill" id="lsc-fill-4"></div></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ═══ VIEW: GAMES ═══ -->
+      <div id="view-games" class="main-view">
+        <h2 class="view-heading"><span class="ic ic-gamepad"></span>Mini-Games</h2>
+        <p class="view-subheading">Each game is inside its lesson's Phase 3. Click Play to jump straight to the game. Locked games require completing the previous lesson first.</p>
+        <div class="games-grid">
+
+          <div class="game-card" id="gcrd-1">
+            <div class="gc-emoji">🏀</div>
+            <div class="gc-info">
+              <div class="gc-top-row">
+                <h3 class="gc-title">Basketball Launcher</h3>
+                <span class="gc-badge gc-unlocked"><span class="ic ic-check"></span> Playable</span>
+              </div>
+              <p class="gc-desc">Set angle &amp; power to score baskets using projectile motion physics.</p>
+              <div class="gc-lesson-tag">Lesson 1 · Projectile Motion</div>
+              <div style="font-size: .75rem;font-weight:700;color:#facc15;margin-top:3px" id="gc-score-1"></div>
+            </div>
+            <button class="gc-play-btn" onclick="launchGame(1)">▶ Play</button>
+          </div>
+
+          <div class="game-card gc-locked" id="gcrd-2">
+            <div class="gc-emoji" style="opacity:.35">💥</div>
+            <div class="gc-info">
+              <div class="gc-top-row">
+                <h3 class="gc-title" style="color:var(--text-muted)">Collision Lab</h3>
+                <span class="gc-badge gc-locked-badge"><span class="ic ic-lock"></span> Locked</span>
+              </div>
+              <p class="gc-desc" style="color:var(--text-muted)">Adjust masses and velocities: elastic vs inelastic collisions and momentum conservation.</p>
+              <div class="gc-lesson-tag" style="opacity:.35">Lesson 2 · Momentum</div>
+              <div style="font-size: .75rem;font-weight:700;color:#facc15;margin-top:3px" id="gc-score-2"></div>
+            </div>
+            <button class="gc-play-btn gc-play-locked" disabled><span class="ic ic-lock"></span> Locked</button>
+          </div>
+
+          <div class="game-card gc-locked" id="gcrd-3">
+            <div class="gc-emoji" style="opacity:.35">⚡</div>
+            <div class="gc-info">
+              <div class="gc-top-row">
+                <h3 class="gc-title" style="color:var(--text-muted)">Generator Simulator</h3>
+                <span class="gc-badge gc-locked-badge"><span class="ic ic-lock"></span> Locked</span>
+              </div>
+              <p class="gc-desc" style="color:var(--text-muted)">Spin a virtual generator, control RPM and coil turns to produce electricity.</p>
+              <div class="gc-lesson-tag" style="opacity:.35">Lesson 3 · Electricity</div>
+              <div style="font-size: .75rem;font-weight:700;color:#facc15;margin-top:3px" id="gc-score-3"></div>
+            </div>
+            <button class="gc-play-btn gc-play-locked" disabled><span class="ic ic-lock"></span> Locked</button>
+          </div>
+
+          <div class="game-card gc-locked" id="gcrd-4">
+            <div class="gc-emoji" style="opacity:.35">🌿</div>
+            <div class="gc-info">
+              <div class="gc-top-row">
+                <h3 class="gc-title" style="color:var(--text-muted)">Energy Simulator</h3>
+                <span class="gc-badge gc-locked-badge"><span class="ic ic-lock"></span> Locked</span>
+              </div>
+              <p class="gc-desc" style="color:var(--text-muted)">Run solar, wind, hydro, coal, oil &amp; gas simulations. Compare environmental impact scores.</p>
+              <div class="gc-lesson-tag" style="opacity:.35">Lesson 4 · Energy Sources</div>
+              <div style="font-size: .75rem;font-weight:700;color:#facc15;margin-top:3px" id="gc-score-4"></div>
+            </div>
+            <button class="gc-play-btn gc-play-locked" disabled><span class="ic ic-lock"></span> Locked</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ═══ VIEW: PROGRESS ═══ -->
+      <div id="view-progress" class="main-view">
+        <h2 class="view-heading"><span class="ic ic-chart"></span>Your Progress</h2>
+        <p class="view-subheading">Full breakdown of how you performed across all lessons and phases. <a href="#" onclick="openScoresModal();return false" style="color:var(--orange);font-weight:700">View Scores →</a></p>
+        <div id="progress-detail-wrap"></div>
+      </div>
+
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside id="right-panel">
+
+      <div class="right-card" id="progress-ring-card">
+        <h4>Overall Progress</h4>
+        <div id="ring-wrap">
+          <svg id="progress-ring" viewBox="0 0 100 100">
+            <circle class="ring-bg" cx="50" cy="50" r="38" />
+            <circle class="ring-fg" cx="50" cy="50" r="38" stroke-dasharray="239" stroke-dashoffset="239" />
+          </svg>
+          <div id="ring-label">
+            <strong id="ring-pct-text">0%</strong>
+            <small>DONE</small>
+          </div>
+        </div>
+        <p id="ring-sub">0 of 4 lessons complete</p>
+        <ul id="progress-breakdown">
+          <li class="pb-row"><span class="pb-dot grey" id="dot-l1"></span><span class="pb-name">Projectile Motion</span><span class="pb-val" id="pb-val-l1">0%</span></li>
+          <li class="pb-row"><span class="pb-dot grey" id="dot-l2"></span><span class="pb-name">Momentum</span><span class="pb-val" id="pb-val-l2"><span class="ic ic-lock"></span></span></li>
+          <li class="pb-row"><span class="pb-dot grey" id="dot-l3"></span><span class="pb-name">Electricity Gen.</span><span class="pb-val" id="pb-val-l3"><span class="ic ic-lock"></span></span></li>
+          <li class="pb-row"><span class="pb-dot grey" id="dot-l4"></span><span class="pb-name">Energy Sources</span><span class="pb-val" id="pb-val-l4"><span class="ic ic-lock"></span></span></li>
+        </ul>
+      </div>
+
+      <!-- About the Team -->
+      <div class="right-card" id="about-card">
+        <h4>About the Team</h4>
+        <p style="font-size:.82rem;color:var(--muted,#8aa);margin:-4px 0 14px;line-height:1.5"><strong>ALECS</strong> stands for <strong>A</strong>chieving <strong>L</strong>earning <strong>E</strong>xcellence through <strong>C</strong>omputing and <strong>S</strong>imulation.</p>
+        <div id="team-list">
+         <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#f97316,#facc15);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/Keshia.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>K</span></div>
+            <div class="tm-info"><strong>Roño, Keshia P.</strong><small>Group Leader and Lesson 2 Content Writer STEM 12-A</small></div>
+          </div>
+          <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#22c55e,#38bdf8);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/Jade Judeanna P. De (1).png" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>J</span></div>
+            <div class="tm-info"><strong>Depamaylo, Jade Judeanna P.</strong><small>Lead Web App Developer STEM 12-A</small></div>
+          </div>
+          <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#a855f7,#f97316);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/6ae387cc-30b7-440a-8ef8-c5acf81df320.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>J</span></div>
+            <div class="tm-info"><strong>Partoza, Jamaica Sophia R.</strong><small>Lesson 1 Content Writer STEM 12-A</small></div>
+          </div>
+          <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#38bdf8,#22c55e);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/713163204_959246060281400_136540939738742115_n.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>D</span></div>
+            <div class="tm-info"><strong>Magsaysay, Daniella Akemi Z.</strong><small>Lesson 3 Content Writer STEM 12-A</small></div>
+          </div>
+          <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#facc15,#a855f7);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/a46f9b9c-5377-40de-afc9-b7040fb992d7.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>K</span></div>
+            <div class="tm-info"><strong>Labuguen, Kim Ali E.</strong><small>Lesson 4 Content Writer STEM 12-A</small></div>
+          </div>
+          <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#f97316,#facc15);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/710848012_999886905990281_2107948402335367240_n.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>J</span></div>
+            <div class="tm-info"><strong>Alano, Jaine Jed D.</strong><small>Web App Content Outline Writer STEM 12-A</small></div>
+          </div>
+            <div class="team-member">
+            <div class="tm-avatar" style="background:linear-gradient(135deg,#22c55e,#38bdf8);overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="/712428925_1469165864512724_3344241453101237297_n.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:none" onerror="this.style.display='none'" onload="this.style.display='block';this.nextSibling.style.display='none'"><span>C</span></div>
+            <div class="tm-info"><strong>Cruza Jr., Lorenzo S.</strong><small>Web App Design Outline Planner STEM 12-A</small></div>
+          </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="right-card" style="border-color:rgba(239,68,68,0.3)">
+        <h4 style="color:#ef4444"><span class="ic ic-settings"></span> Settings</h4>
+        <p style="font-size:11px;color:var(--text-secondary);line-height:1.5;margin-bottom:8px">Reset all XP, levels, streaks, and lesson progress.</p>
+        <button onclick="openSettingsModal()" style="width:100%;padding:9px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);border-radius:8px;color:#ef4444;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer;transition:.2s" onmouseover="this.style.background='rgba(239,68,68,0.22)'" onmouseout="this.style.background='rgba(239,68,68,0.12)'">
+          <span class="ic ic-trash"></span> Reset All Progress
+        </button>
+      </div>
+
+    </aside>
+  </div>
+
+
+  <!-- ═══ SAVE / LOAD MODAL ═══ -->
+  <div id="save-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeSaveModal()">
+    <div class="modal-box" style="max-width:460px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <h2 class="modal-title" style="margin:0"><span class="ic ic-save"></span> Save / Load</h2>
+        <button onclick="closeSaveModal()" style="color:var(--text-muted);font-size:1.2rem;background:none;border:none;cursor:pointer">✕</button>
+      </div>
+      <div id="save-slots-wrap"></div>
+    </div>
+  </div>
+
+
+  <!-- ═══ PROGRESS SCORES MODAL (from sidebar) ═══ -->
+  <div id="scores-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeScoresModal()">
+    <div class="modal-box" style="max-width:480px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <h2 class="modal-title" style="margin:0"><span class="ic ic-chart"></span> Scores &amp; Analysis</h2>
+        <button onclick="closeScoresModal()" style="color:var(--text-muted);font-size:1.2rem;background:none;border:none;cursor:pointer">✕</button>
+      </div>
+      <div id="scores-modal-wrap"></div>
+    </div>
+  </div>
+
+  <!-- ═══ PROFILE MODAL ═══ -->
+  <div id="profile-modal" class="modal-overlay" style="display:none">
+    <div class="modal-box" style="max-width:440px">
+      <h2 class="modal-title"><span class="ic ic-user"></span> Edit Profile</h2>
+      <div class="prof-preview-row">
+        <div id="prof-avatar-preview" class="prof-avatar-big">?</div>
+        <div>
+          <strong id="prof-name-preview" style="font-size:1rem;display:block;color:var(--text-primary)">Your Name</strong>
+          <small style="color:var(--text-secondary)">Level <span id="prof-level-preview">1</span></small>
+        </div>
+      </div>
+      <label class="modal-label">DISPLAY NAME</label>
+      <input id="prof-name-input" type="text" maxlength="20" placeholder="Enter your name..." class="modal-input" oninput="updateProfilePreview()"/>
+      <label class="modal-label">CHOOSE AVATAR NUMBER (1–100)</label>
+      <p style="font-size:.77rem;color:var(--text-muted);margin-bottom:10px">Your avatar is your chosen number. Pick any!</p>
+      <div id="avatar-picker-grid" class="avatar-grid"></div>
+      <div class="modal-btn-row">
+        <button onclick="saveProfile()" class="modal-btn-primary">Save</button>
+        <button onclick="closeProfileModal()" class="modal-btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ACHIEVEMENTS MODAL ═══ -->
+  <div id="achievements-modal" class="modal-overlay" style="display:none">
+    <div class="modal-box" style="max-width:520px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <h2 class="modal-title" style="margin:0"><span class="ic ic-star"></span> Achievements</h2>
+        <button onclick="closeAchievementsModal()" style="color:var(--text-muted);font-size:1.2rem;line-height:1">✕</button>
+      </div>
+      <div id="achievements-grid"></div>
+    </div>
+  </div>
+
+  <!-- ═══ SETTINGS MODAL ═══ -->
+  <div id="reset-modal" class="modal-overlay" style="display:none">
+    <div class="modal-box" style="max-width:380px;text-align:center">
+      <div style="font-size:2rem;margin-bottom:8px" class="ic ic-settings"></div>
+      <h2 class="modal-title">Settings</h2>
+      <p style="font-size:.87rem;color:var(--text-secondary);margin-bottom:22px;line-height:1.6">This will reset <strong style="color:var(--text-primary)">all progress</strong>: XP, streak, and lesson data will return to zero.</p>
+      <button onclick="resetAllProgress()" class="modal-btn-danger"><span class="ic ic-trash"></span> Reset All Progress</button>
+      <button onclick="document.getElementById('reset-modal').style.display='none'" class="modal-btn-secondary" style="margin-top:8px">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ═══ LEVEL-UP POPUP ═══ -->
+  <div id="levelup-popup" class="levelup-popup" style="display:none">
+    <div style="font-size:2.8rem">⚡</div>
+    <div class="levelup-title" id="levelup-text">Level Up!</div>
+    <div class="levelup-sub" id="levelup-sub"></div>
+  </div>
+
+</body>
+</html>
